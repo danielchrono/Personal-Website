@@ -1,0 +1,674 @@
+:root {
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --slate: #8892b0;
+  --lightest-slate: #ccd6f6;
+  --brand: #64ffda;
+  --white: #f5f5f5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--navy);
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 6rem 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section.alt {
+  background-color: var(--light-navy);
+  min-height: 100vh;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: var(--lightest-slate);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sec-index {
+  color: var(--brand);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Header */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1001;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--lightest-slate);
+  text-decoration: none;
+}
+
+.brand-initial {
+  color: var(--brand);
+}
+
+.nav-list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--lightest-slate);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--brand);
+}
+
+/* Botão mobile */
+.btn-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.btn-mobile span {
+  width: 25px;
+  height: 3px;
+  background: var(--brand);
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: auto;
+  height: auto;
+  background-color: rgba(17, 34, 64, 0.98);
+  backdrop-filter: blur(5px);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Garante que o item da lista não tenha margens desnecessárias */
+.mobile-nav-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-link {
+  color: var(--lightest-slate);
+  font-size: 1.3rem;
+  text-decoration: none;
+
+  /* Permite que o link ocupe o espaço */
+  display: block;
+
+  /* Adiciona padding ao link (agora ele é um bloco) para criar a área de clique */
+  padding: 0.75rem 0; /* Aumente o padding para criar uma área de toque maior */
+
+  /* Centraliza o texto dentro da área de clique */
+  text-align: left;
+
+  /* Adiciona um hover visual para o quadrante */
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.mobile-link:hover {
+  color: var(--brand);
+  background-color: var(--navy); /* Um pequeno destaque no fundo do quadrante */
+}
+
+/* Estilização para o ícone dentro do link de navegação */
+.nav-link i,
+.mobile-link i {
+  margin-right: 0.5rem; /* Espaçamento entre o ícone e o texto */
+  color: var(--brand); /* Garante que o ícone tenha a cor de destaque */
+}
+
+/* Opcional: Garante que a cor do ícone mude no hover (caso não herde do link) */
+.nav-link:hover i,
+.mobile-link:hover i {
+  color: var(--brand);
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 0;
+}
+
+.hero-inner {
+  text-align: left;
+  width: 100%;
+}
+
+.intro {
+  color: var(--brand);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    margin-top: -3rem;
+  }
+}
+
+.hero-title {
+  font-size: 3rem;
+  color: var(--lightest-slate);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  color: var(--slate);
+  margin-bottom: 1.5rem;
+}
+
+.hero-text {
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: var(--navy);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--brand);
+  border: 2px solid var(--brand);
+}
+
+.btn-secondary {
+  border: 2px solid var(--brand);
+  color: var(--brand);
+}
+
+.btn-secondary:hover {
+  background: var(--brand);
+  color: var(--navy);
+}
+
+/* Sobre */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.profile-figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-photo {
+  width: 250px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--brand);
+  background: #1d2d50;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  color: var(--brand);
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+}
+
+/* Skills */
+.skills-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.skills-category-title {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--lightest-slate);
+}
+
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.skill-percentage {
+  color: var(--brand);
+}
+
+.skill-bar {
+  height: 8px;
+  background: #1d2d50;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar-progress {
+  background: var(--brand);
+  width: 0;
+  height: 100%;
+  transition: width 1s ease-in-out;
+}
+
+.additional-skills {
+  margin-top: 3rem;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: #1d2d50;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--lightest-slate);
+}
+
+/* Projetos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.project-card {
+  background: var(--light-navy);
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-icon {
+  font-size: 2rem;
+  color: var(--brand);
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.project-link {
+  color: var(--slate);
+  font-size: 1.2rem;
+}
+
+.project-link:hover {
+  color: var(--brand);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin: 3rem auto 0;
+  padding: 2rem 0;
+  max-width: 800px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: var(--brand);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+  margin-bottom: 1.25rem;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 1.5rem;
+  width: 15px;
+  height: 15px;
+  background: var(--navy);
+  border: 2px solid var(--brand);
+  border-radius: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.timeline-item:nth-child(odd)::before {
+  left: 100%;
+}
+.timeline-item:nth-child(even)::before {
+  left: 0;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: 2.5rem;
+}
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 2.5rem;
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: var(--brand);
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content {
+  background: var(--light-navy);
+  padding: 1rem;
+  border-radius: 6px;
+  color: var(--lightest-slate);
+  margin-top: 0.5rem;
+}
+
+.timeline-content h3 {
+  color: var(--lightest-slate);
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 8px;
+    transform: none;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 2.5rem;
+    text-align: left !important;
+    left: 0 !important;
+  }
+
+  .timeline-item::before,
+  .timeline-item:nth-child(odd)::before,
+  .timeline-item:nth-child(even)::before {
+    left: 8px;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item .timeline-content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Contato */
+.section-sub {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--slate);
+}
+
+.contact-grid-main,
+.social-grid-main {
+  /* Centraliza o grid dentro da área do container */
+  max-width: 650px;
+  margin: 0 auto; /* Margin é 0 vertical, auto horizontal para centralizar */
+  display: grid;
+  grid-template-columns: 1fr; /* 1 coluna no mobile */
+  gap: 1.5rem; /* Espaçamento interno entre os cards */
+}
+
+/* Adiciona o espaçamento EXATO que queremos APENAS ABAIXO do primeiro grid */
+.contact-grid-main {
+  margin-bottom: 1.5rem; /* Usando o mesmo valor do gap interno para padronizar */
+}
+
+/* MEDIA QUERY: 2 colunas para telas de tablet e desktop */
+@media (min-width: 600px) {
+  .contact-grid-main,
+  .social-grid-main {
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact-grid-main {
+    margin-bottom: 1.5rem;
+  }
+  .social-grid-main {
+    margin-bottom: 0; /* Garante que o último não tenha margem extra */
+  }
+}
+
+.contact-link-wrapper {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  /* Garante que o link ocupe o espaço no grid */
+  display: block;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--light-navy);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  /* Transição para o efeito hover */
+  transition: transform 0.3s, background 0.3s;
+  height: 100%; /* Garante que o card ocupe todo o espaço do wrapper */
+}
+
+/* Efeito de hover para os cards clicáveis */
+.contact-link-wrapper:hover .contact-card {
+  transform: translateY(-3px);
+  background: #152d58;
+  color: var(--brand);
+}
+
+.contact-icon {
+  font-size: 3rem;
+  color: var(--brand);
+}
+
+.map-container {
+  max-width: 100%;
+  margin: 3rem auto 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+  /* Transição e altura/opacidade iniciais */
+  transition: max-height 0.5s ease-out, opacity 0.4s ease-out;
+  max-height: 0; /* Altura 0 para 'esconder' o conteúdo */
+  opacity: 0;
+}
+
+/* Classe para mostrar o mapa */
+.map-container.visible {
+  max-height: 500px; /* Altura máxima para permitir a transição */
+  opacity: 1;
+}
+
+.social {
+  color: var(--lightest-slate);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.social:hover {
+  color: var(--brand);
+}
+
+/* Estilização para o botão de localização */
+.location-action-area {
+  text-align: center; /* Centraliza o botão */
+  margin-top: 2rem;
+}
+
+.contact-map-btn {
+  /* Estilos do btn-secondary já devem funcionar */
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  display: inline-flex; /* Para alinhar ícone e texto */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Footer */
+.site-footer {
+  padding: 2rem 0;
+  background: #06101f;
+  text-align: center;
+  color: var(--slate);
+  font-size: 0.85rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .about-grid,
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    /* flex-direction: column; */
+    gap: 1rem;
+  }
+
+  .btn-mobile {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .nav-list {
+    display: none;
+  }
+}
