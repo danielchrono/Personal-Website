@@ -15,4 +15,6 @@
   "devDependencies": {
     "serve": "11.2.0"
   }
+  
+  "icon": "profile-img.jpg" 
 }
